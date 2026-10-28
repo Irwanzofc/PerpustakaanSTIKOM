@@ -1,17 +1,25 @@
 <?php
 require_once __DIR__ . '/Buku.php';
-require_once __DIR__ . '/Anggota.php';      
+require_once __DIR__ . '/Anggota.php';
 require_once __DIR__ . '/Peminjaman.php';
+
 
 
 // Data buku
 $bukubackend = new Buku("BA253", "Pengembangan Sistem Backend", "Herdian", 5);
 $bukubisnis = new Buku("BA245", "Analisis Dan Bisnis", "Yudi", 3);
 $bukuperancangan = new Buku("BA115", "Perancangan Sistem Informasi", "Puritan", 2);
+
+$daftarBuku = [$bukubackend, $bukubisnis, $bukuperancangan];
+
 // Data anggota
 $irwan = new Mahasiswa("M001", "irwan");
 $mahesa = new Mahasiswa("M002", "mahesa");
 $kenza = new Mahasiswa("M003", "kenza");
+
+Buku::tampilkanSisaBuku($daftarBuku); // Fungsi dari "Buku::" Adalah fungsi static, sehingga bisa dipanggil tanpa membuat objek baru.
+
+echo "<hr>";
 
 echo "<br><b>Transaksi</b><br>";
 
@@ -19,6 +27,7 @@ $p1 = new Peminjaman($bukubackend, $irwan, "2026-10-01");
 $p2 = new Peminjaman($bukubisnis, $mahesa, "2026-10-01");
 $p3 = new Peminjaman($bukubisnis, $irwan, "2026-10-02");
 $p4 = new Peminjaman($bukuperancangan, $kenza, "2026-10-11");
+
 
 // Peminjaman
 echo "<br><i>Transaksi 1: peminjaman</i><br>";
@@ -57,6 +66,7 @@ $p2->tampilkanTabel();
 
 
 echo "<br><hr><h3>Data Keseluruhan</h3>";
+
 
 /* ---------- Tabel semua transaksi ---------- */
 $daftarPinjam = [$p1, $p2, $p3, $p4];
