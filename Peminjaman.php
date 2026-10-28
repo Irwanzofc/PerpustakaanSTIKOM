@@ -26,6 +26,9 @@ class Peminjaman {
 
     public function getStatus() { return $this->status; }
 
+    public function getBuku()    { return $this->buku; }
+    public function getAnggota() { return $this->anggota; }
+
     // Memproses peminjaman. Return true kalau berhasil.
     public function proses() {
         if (!$this->anggota->bolehPinjam()) {
@@ -65,8 +68,25 @@ class Peminjaman {
         return $hariTerlambat * self::DENDA_PER_HARI;
     }
 
-    public function tampilkanInfo() {
-        echo "Peminjam: {$this->anggota->getNama()} | Buku: {$this->buku->getJudul()} | "
-           . "Status: {$this->status} | Denda: Rp " . $this->hitungDenda() . "<br>";
-    }
+    public function tampilkanTabel() {
+    $kembali = ($this->tglKembali === null) ? "-" : $this->tglKembali->format('d-m-Y');
+
+    echo "<table border='1' cellpadding='5'>
+            <tr>
+                <th>Peminjam</th><th>Jenis</th><th>Buku</th>
+                <th>Tgl Pinjam</th><th>Jatuh Tempo</th><th>Tgl Kembali</th>
+                <th>Status</th><th>Denda</th>
+            </tr>
+            <tr>
+                <td>{$this->anggota->getNama()}</td>
+                <td>{$this->anggota->getJenis()}</td>
+                <td>{$this->buku->getJudul()}</td>
+                <td>{$this->tglPinjam->format('d-m-Y')}</td>
+                <td>{$this->jatuhTempo->format('d-m-Y')}</td>
+                <td>{$kembali}</td>
+                <td>{$this->status}</td>
+                <td>Rp " . $this->hitungDenda() . "</td>    
+            </tr>
+          </table><br>";
+}
 }
