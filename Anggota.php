@@ -13,6 +13,7 @@ class Anggota {
     public function getId()             { return $this->id; }
     public function getNama()           { return $this->nama; }
     public function getJumlahDipinjam() { return $this->jumlahDipinjam; }
+    
 
     // Tiga method di bawah di-override oleh class turunan
     public function getJenis()       { return "Anggota Umum"; }
@@ -46,8 +47,4 @@ class Mahasiswa extends Anggota {
     public function getLamaPinjam()  { return 7; }
 }
 
-class Dosen extends Anggota {
-    public function getJenis()       { return "Dosen"; }
-    public function getBatasPinjam() { return 5; }
-    public function getLamaPinjam()  { return 14; }
-}
+
