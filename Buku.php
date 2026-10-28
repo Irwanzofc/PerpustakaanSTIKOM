@@ -62,7 +62,7 @@ class Buku
         $this->stok++;
     }
 
-    public static function tampilkanSisaBuku(array $daftarBuku)
+    public static function BukuYangTersedia(array $daftarBuku)
 {
     echo "<b>Buku Yang Tersedia</b><br><br>";
     echo "<table border='1' cellpadding='5'>";
