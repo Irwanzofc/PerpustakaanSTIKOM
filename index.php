@@ -17,7 +17,7 @@ $irwan = new Mahasiswa("M001", "irwan");
 $mahesa = new Mahasiswa("M002", "mahesa");
 $kenza = new Mahasiswa("M003", "kenza");
 
-Buku::tampilkanSisaBuku($daftarBuku); // Fungsi dari "Buku::" Adalah fungsi static, sehingga bisa dipanggil tanpa membuat objek baru.
+Buku::BukuYangTersedia($daftarBuku); // Fungsi dari "Buku::" Adalah fungsi static, sehingga bisa dipanggil tanpa membuat objek baru.
 
 echo "<hr>";
 
